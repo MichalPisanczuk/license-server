@@ -18,19 +18,17 @@ use MyShop\LicenseServer\Domain\Exceptions\{
     ValidationException
 };
 
-/**
- * Enhanced License Service with proper error handling, transactions, and security.
- */
 class EnhancedLicenseService
 {
-    private EnhancedLicenseRepository $licenses,
-    private EnhancedActivationRepository $activations,
+    // Teraz typy będą się zgadzać:
+    private EnhancedLicenseRepository $licenses;
+    private EnhancedActivationRepository $activations;
     private ReleaseRepository $releases;
     private SecureLicenseKeyService $keyService;
 
     public function __construct(
-        LicenseRepository $licenses,
-        ActivationRepository $activations,
+        EnhancedLicenseRepository $licenses,
+        EnhancedActivationRepository $activations,
         ReleaseRepository $releases,
         SecureLicenseKeyService $keyService
     ) {
