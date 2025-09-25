@@ -265,6 +265,11 @@ class EnhancedBootstrap
             );
         });
 
+        // Logger service
+        $this->register('logger', function () {
+            return new \MyShop\LicenseServer\Domain\Services\Logger();
+        });
+
         do_action('lsr_register_services', $this);
     }
 
