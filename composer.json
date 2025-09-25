@@ -1,0 +1,12 @@
+{
+    "name": "myshop/license-server",
+    "description": "License server for WooCommerce plugins",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "MyShop\\LicenseServer\\": "includes/"
+        }
+    },
+    "require": {}
+}

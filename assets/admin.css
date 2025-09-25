@@ -1,0 +1,18 @@
+/*
+ * Style administracyjne dla License Server
+ * Możesz dostosować wygląd panelu licencji, tabel itp.
+ */
+
+.lsr-license-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.lsr-license-table th,
+.lsr-license-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.lsr-license-table th {
+    background-color: #f4f4f4;
+    text-align: left;
+}
