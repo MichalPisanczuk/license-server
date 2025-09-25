@@ -1,7 +1,7 @@
 <?php
 namespace MyShop\LicenseServer\WooCommerce;
 
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
 use function MyShop\LicenseServer\lsr;
 
 /**
@@ -50,7 +50,7 @@ class MyAccountMenu
         }
         $userId = get_current_user_id();
         /** @var LicenseRepository $repo */
-        $repo = lsr(LicenseRepository::class);
+        $repo = lsr(EnhancedLicenseRepository::class);
         $licenses = $repo->findByUser($userId);
         if (empty($licenses)) {
             return $items;
@@ -76,7 +76,7 @@ class MyAccountMenu
         }
         $userId = get_current_user_id();
         /** @var LicenseRepository $repo */
-        $repo = lsr(LicenseRepository::class);
+        $repo = lsr(EnhancedLicenseRepository::class);
         $licenses = $repo->findByUser($userId);
         if (empty($licenses)) {
             echo '<p>' . esc_html__('Nie masz żadnych aktywnych licencji.', 'license-server') . '</p>';

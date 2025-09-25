@@ -2,7 +2,7 @@
 namespace MyShop\LicenseServer\Http;
 
 use MyShop\LicenseServer\Domain\Services\SignedUrlService;
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
 use MyShop\LicenseServer\Data\Repositories\ReleaseRepository;
 use function MyShop\LicenseServer\lsr;
 
@@ -19,7 +19,7 @@ class DownloadHandler
             wp_die(__('Podpis niepoprawny lub link wygasł.', 'license-server'), __('Błąd pobierania', 'license-server'), 403);
         }
         /** @var LicenseRepository $licenses */
-        $licenses = lsr(LicenseRepository::class);
+        $licenses = lsr(EnhancedLicenseRepository::class);
         /** @var ReleaseRepository $releases */
         $releases = lsr(ReleaseRepository::class);
         $license = $licenses->findByKey($this->getLicenseKeyById($licenseId));

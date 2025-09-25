@@ -1,7 +1,7 @@
 <?php
 namespace MyShop\LicenseServer\WooCommerce;
 
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
 use function MyShop\LicenseServer\lsr;
 
 /**
@@ -30,7 +30,7 @@ class SubscriptionsHooks
     {
         $subId = $subscription->get_id();
         /** @var LicenseRepository $repo */
-        $repo = lsr(LicenseRepository::class);
+        $repo = lsr(EnhancedLicenseRepository::class);
         $license = $repo->findBySubscriptionId($subId);
         if (!$license) {
             return;
@@ -60,7 +60,7 @@ class SubscriptionsHooks
     {
         $subId = $subscription->get_id();
         /** @var LicenseRepository $repo */
-        $repo = lsr(LicenseRepository::class);
+        $repo = lsr(EnhancedLicenseRepository::class);
         $license = $repo->findBySubscriptionId($subId);
         if (!$license) {
             return;
@@ -81,7 +81,7 @@ class SubscriptionsHooks
     {
         $subId = $subscription->get_id();
         /** @var LicenseRepository $repo */
-        $repo = lsr(LicenseRepository::class);
+        $repo = lsr(EnhancedLicenseRepository::class);
         $license = $repo->findBySubscriptionId($subId);
         if (!$license) {
             return;

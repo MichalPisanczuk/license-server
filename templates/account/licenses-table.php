@@ -15,7 +15,7 @@ if (!is_user_logged_in()) {
 }
 
 // Pobierz licencje użytkownika z repozytorium
-$repo = MyShop\LicenseServer\lsr(MyShop\LicenseServer\Data\Repositories\LicenseRepository::class);
+$repo = MyShop\LicenseServer\lsr(MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository::class);
 $licenses = $repo->findByUser(get_current_user_id());
 
 if (empty($licenses)) {

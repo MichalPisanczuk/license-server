@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace MyShop\LicenseServer\Domain\Services;
 
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
-use MyShop\LicenseServer\Data\Repositories\ActivationRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedActivationRepository;
 use MyShop\LicenseServer\Data\Repositories\ReleaseRepository;
 use MyShop\LicenseServer\Domain\Services\SecureLicenseKeyService;
 use MyShop\LicenseServer\Domain\ValueObjects\LicenseKey;
@@ -23,8 +23,8 @@ use MyShop\LicenseServer\Domain\Exceptions\{
  */
 class EnhancedLicenseService
 {
-    private LicenseRepository $licenses;
-    private ActivationRepository $activations;
+    private EnhancedLicenseRepository $licenses,
+    private EnhancedActivationRepository $activations,
     private ReleaseRepository $releases;
     private SecureLicenseKeyService $keyService;
 

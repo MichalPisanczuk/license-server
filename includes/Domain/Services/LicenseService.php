@@ -1,8 +1,8 @@
 <?php
 namespace MyShop\LicenseServer\Domain\Services;
 
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
-use MyShop\LicenseServer\Data\Repositories\ActivationRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedActivationRepository;
 use MyShop\LicenseServer\Data\Repositories\ReleaseRepository;
 use function MyShop\LicenseServer\normalize_domain;
 use function MyShop\LicenseServer\generate_license_key;

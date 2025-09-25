@@ -27,8 +27,8 @@ class LicensesTable extends \WP_List_Table
     public function prepare_items(): void
     {
         // Pobierz dane z repozytorium i przygotuj je do wyświetlenia
-        $repo          = \MyShop\LicenseServer\lsr(\MyShop\LicenseServer\Data\Repositories\LicenseRepository::class);
-        $activationRepo= \MyShop\LicenseServer\lsr(\MyShop\LicenseServer\Data\Repositories\ActivationRepository::class);
+        $repo          = \MyShop\LicenseServer\lsr(\MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository::class);
+        $activationRepo= \MyShop\LicenseServer\lsr(\MyShop\LicenseServer\Data\Repositories\EnhancedActivationRepository::class);
         $items = [];
         if ($repo) {
             $licenses = $repo->findAll();

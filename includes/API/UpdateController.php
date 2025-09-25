@@ -6,7 +6,7 @@ use WP_REST_Response;
 use WP_Error;
 use MyShop\LicenseServer\Domain\Services\LicenseService;
 use MyShop\LicenseServer\Data\Repositories\ReleaseRepository;
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
 use MyShop\LicenseServer\Domain\Services\SignedUrlService;
 use function MyShop\LicenseServer\lsr;
 
@@ -228,7 +228,7 @@ class UpdateController
 
             // Get and validate license
             /** @var LicenseRepository $licenseRepo */
-            $licenseRepo = lsr(LicenseRepository::class);
+            $licenseRepo = lsr(EnhancedLicenseRepository::class);
             if (!$licenseRepo) {
                 return $this->errorResponse(
                     'service_unavailable',

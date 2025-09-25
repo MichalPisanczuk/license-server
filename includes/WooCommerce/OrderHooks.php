@@ -2,7 +2,7 @@
 namespace MyShop\LicenseServer\WooCommerce;
 
 use MyShop\LicenseServer\Domain\Services\LicenseService;
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
 use function MyShop\LicenseServer\lsr;
 
 /**
@@ -29,7 +29,7 @@ class OrderHooks
         }
         // Upewnij się, że to pierwsze wywołanie dla tego zamówienia (unikaj duplikatów)
         /** @var LicenseRepository $repo */
-        $repo = lsr(LicenseRepository::class);
+        $repo = lsr(EnhancedLicenseRepository::class);
         /** @var LicenseService $service */
         $service = lsr(LicenseService::class);
         $service->generateLicensesForOrder($order);

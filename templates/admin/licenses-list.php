@@ -9,13 +9,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-use MyShop\LicenseServer\Data\Repositories\LicenseRepository;
-use MyShop\LicenseServer\Data\Repositories\ActivationRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedLicenseRepository;
+use MyShop\LicenseServer\Data\Repositories\EnhancedActivationRepository;
 use function MyShop\LicenseServer\lsr;
 
 // Get repositories
-$licenseRepo = lsr(LicenseRepository::class);
-$activationRepo = lsr(ActivationRepository::class);
+$licenseRepo = lsr(EnhancedLicenseRepository::class);
+$activationRepo = lsr(EnhancedActivationRepository::class);
 
 // Handle bulk actions
 $message = '';
