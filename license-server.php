@@ -26,6 +26,40 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+add_action('admin_menu', function() {
+    // Force administrator capabilities
+    $role = get_role('administrator');
+    if ($role && !$role->has_cap('manage_options')) {
+        $role->add_cap('manage_options');
+    }
+    
+    // Add emergency access menu
+    if (current_user_can('manage_options')) {
+        add_menu_page(
+            'License Server Emergency',
+            'License Server ⚠️',
+            'manage_options',
+            'lsr-emergency',
+            function() {
+                echo '<div class="wrap">';
+                echo '<h1>License Server - Emergency Access</h1>';
+                echo '<p>Menu główne nie załadowało się poprawnie.</p>';
+                echo '<h3>Linki bezpośrednie:</h3>';
+                echo '<ul>';
+                echo '<li><a href="' . admin_url('admin.php?page=lsr-licenses') . '">→ Licencje</a></li>';
+                echo '<li><a href="' . admin_url('admin.php?page=lsr-releases') . '">→ Wydania</a></li>';
+                echo '<li><a href="' . admin_url('admin.php?page=lsr-settings') . '">→ Ustawienia</a></li>';
+                echo '<li><a href="' . admin_url('admin.php?page=lsr-debug-fix') . '">→ Debug & Fix</a></li>';
+                echo '</ul>';
+                echo '<p><a href="' . admin_url('admin.php?lsr_autofix=1') . '" class="button button-primary">Automatyczna naprawa</a></p>';
+                echo '</div>';
+            },
+            'dashicons-warning',
+            99
+        );
+    }
+}, 5);
+
 // Plugin constants
 define('LSR_VERSION', '2.0.0');
 define('LSR_FILE', __FILE__);
